@@ -1,0 +1,42 @@
+.lcw {
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  .lcw {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .lcw {
+    width: 768px;
+  }
+}
+@media (min-width: 1280px) {
+  .lcw {
+    width: 1280px;
+  }
+}
+body {
+  margin: 0;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  background: #333;
+  padding: 15px 0;
+}
+header a {
+  color: #eee;
+}
+main {
+  flex-grow: 1;
+}
+footer {
+  background: #333;
+  color: #eee;
+}

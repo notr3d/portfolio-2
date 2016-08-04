@@ -1,0 +1,47 @@
+@m: ~ "(max-width: 767px)";
+@t: ~ "(min-width: 768px)";
+@d: ~ "(min-width: 1280px)";
+
+.lcw {
+	margin: 0 auto;		
+	@media @m {
+		width: 100%;
+	}
+	@media @t {
+		width: 768px;
+	}
+	@media @d {
+		width: 1280px;
+	}	
+}
+
+@black: #333;
+@white: #eee;
+
+body {
+	margin: 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+header {
+	background: @black;
+	padding: 15px 0;
+	a {
+		color: @white;
+	}
+}
+
+main {
+	flex-grow: 1;
+}
+
+footer {
+	background: @black;
+	color: @white;
+}
