@@ -83,11 +83,26 @@ footer {
 		flex-wrap: wrap;
 	}
 	&__item {		
-		height: 320px;
-		flex-basis: 25%;
-		padding: 8px;
-		&--big {
+		height: 320px;		
+		@media @m {
+			flex-basis: 100%;
+		}
+		@media @t {
 			flex-basis: 50%;
+		}
+		@media @d {
+			flex-basis: 25%;
+		}		
+		&--big {
+			@media @m {
+				flex-basis: 100%;
+			}
+			@media @t {
+				flex-basis: 100%;
+			}
+			@media @d {
+				flex-basis: 50%;
+			}
 		}
 	}
 	&__inner {
