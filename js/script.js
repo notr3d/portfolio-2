@@ -150,9 +150,26 @@ portfolioItem.click(function(){
 	var modalCloseButton = modal.find('.modal__button--close');
 	modalCloseButton.click(function(){
 		closeModal();
-	});
+	});	
+	toggleModalDescription();
 });
-
+	
+//скрываем боковое меню если его не видно
+var toggleModalDescription = function(){
+	var activeSlide = modalItem.filter('.' + modalItemActiveClass);
+	var modalDescription = activeSlide.find('.modal__col--right');
+	var modalDescriptionHeight = modalDescription.outerHeight();
+	activeSlide.scroll(function(){	
+		var modalScrollHeight = activeSlide.scrollTop();
+		var modalColumnHiddenClass = 'modal__col--hidden';
+		if (modalScrollHeight > modalDescriptionHeight) {
+			modalDescription.addClass(modalColumnHiddenClass);
+		} else if (modalScrollHeight < modalDescriptionHeight) {
+			modalDescription.removeClass(modalColumnHiddenClass);
+		}
+	});
+}
+	
 //переключение
 var modalSlideButton = modal.find('.modal__button--slide');	
 var modalSlideButtonType = '';
@@ -163,6 +180,7 @@ modalSlideButton.click(function(){
 		modalSlideButtonType = 'next';
 	}
 	slideModal(modalSlideButtonType);
+	toggleModalDescription();
 });
 
 //закрываем модальное окно
@@ -191,7 +209,7 @@ var slideModal = function(){
 	}
 	activeSlide.addClass(modalItemActiveClass);
 	activeSlide.siblings().removeClass(modalItemActiveClass);
-}	
+};
 
 $(document).keyup(function(e) {
     if (e.keyCode == 27) { 
