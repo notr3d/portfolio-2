@@ -159,13 +159,20 @@ var toggleModalDescription = function(){
 	var activeSlide = modalItem.filter('.' + modalItemActiveClass);
 	var modalDescription = activeSlide.find('.modal__col--right');
 	var modalDescriptionHeight = modalDescription.outerHeight();
+	var modalScrollUpButton = modal.find('.modal__button--slide-up');
+	var modalScrollUpButtonActiveClass = 'visible';
+	modalScrollUpButton.click(function(){
+		activeSlide.animate({scrollTop: 0});
+	});
 	activeSlide.scroll(function(){	
 		var modalScrollHeight = activeSlide.scrollTop();
 		var modalColumnHiddenClass = 'modal__col--hidden';
 		if (modalScrollHeight > modalDescriptionHeight) {
 			modalDescription.addClass(modalColumnHiddenClass);
+			modalScrollUpButton.addClass(modalScrollUpButtonActiveClass);
 		} else if (modalScrollHeight < modalDescriptionHeight) {
 			modalDescription.removeClass(modalColumnHiddenClass);
+			modalScrollUpButton.removeClass(modalScrollUpButtonActiveClass);
 		}
 	});
 }

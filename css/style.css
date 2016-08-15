@@ -234,6 +234,40 @@
 .modal__button--close::after {
   content: 'Вернуться';
 }
+.modal__button--slide-up {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+}
+@media (max-width: 767px) {
+  .modal__button--slide-up {
+    bottom: 15px;
+    width: 75px;
+    height: 75px;
+  }
+}
+@media (min-width: 768px) {
+  .modal__button--slide-up {
+    bottom: 75px;
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  .modal__button--slide-up {
+    bottom: 150px;
+    width: 45px;
+    height: 45px;
+  }
+}
+.modal__button--slide-up.visible {
+  visibility: visible;
+  opacity: 1;
+}
 @media (max-width: 767px) {
   .modal__button::after {
     display: none;
@@ -318,6 +352,7 @@
 }
 .modal__col--left {
   flex-grow: 1;
+  text-align: center;
 }
 @media (max-width: 767px) {
   .modal__col--left {
@@ -369,9 +404,6 @@
 				overflow: hidden;*/
   }
 }
-.modal__description {
-  width: 100%;
-}
 .modal__header {
   text-transform: uppercase;
   font-size: 36px;
@@ -393,6 +425,7 @@
 }
 .modal__link {
   display: inline-block;
+  margin: 0 auto;
   text-align: center;
   padding: 15px;
   margin-top: auto;

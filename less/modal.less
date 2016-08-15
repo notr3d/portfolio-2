@@ -76,6 +76,34 @@
 				content: 'Вернуться';
 			}
 		}
+		&--slide-up {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.5);			
+			visibility: hidden;
+			opacity: 0;
+			transition: .3s;
+			@media @m {				
+				bottom: 15px;				
+				width: 75px;
+				height: 75px;
+			}
+			@media @t {				
+				bottom: 75px;				
+				width: 60px;
+				height: 60px;
+			}
+			@media @d {				
+				bottom: 150px;				
+				width: 45px;
+				height: 45px;
+			}	
+			&.visible {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
 		@media @m {
 			&::after {
 				display: none;
@@ -152,6 +180,7 @@
 		transition: .3s;		
 		&--left {
 			flex-grow: 1;
+			text-align: center;
 			@media @m {
 				flex-basis: 100%;
 			}
@@ -192,9 +221,6 @@
 			}
 		}
 	}
-	&__description {
-		width: 100%;
-	}
 	&__header {
 		text-transform: uppercase;
 		font-size: 36px;
@@ -216,6 +242,7 @@
 	}
 	&__link {
 		display: inline-block;
+		margin: 0 auto;
 		text-align: center;
 		padding: 15px;
 		margin-top: auto;
