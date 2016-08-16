@@ -243,6 +243,14 @@
   opacity: 0;
   transition: .3s;
 }
+@keyframes modal-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
 @media (max-width: 767px) {
   .modal__button--slide-up {
     bottom: 15px;
@@ -267,6 +275,9 @@
 .modal__button--slide-up.visible {
   visibility: visible;
   opacity: 1;
+}
+.modal__button--slide-up.active {
+  animation: modal-scroll 0.3s;
 }
 @media (max-width: 767px) {
   .modal__button::after {

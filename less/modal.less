@@ -84,6 +84,14 @@
 			visibility: hidden;
 			opacity: 0;
 			transition: .3s;
+			@keyframes modal-scroll {
+				from {
+					transform: translateY(0);
+				}
+				to {
+					transform: translateY(-100vh);
+				}
+			}
 			@media @m {				
 				bottom: 15px;				
 				width: 75px;
@@ -102,6 +110,9 @@
 			&.visible {
 				visibility: visible;
 				opacity: 1;
+			}
+			&.active {
+				animation: modal-scroll .3s;
 			}
 		}
 		@media @m {
