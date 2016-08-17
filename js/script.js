@@ -162,8 +162,7 @@ var toggleModalDescription = function(){
 	var modalScrollUpButton = modal.find('.modal__button--slide-up');
 	var modalScrollUpButtonActiveClass = 'visible';
 	modalScrollUpButton.click(function(){
-		$(this).addClass('active');
-		//activeSlide.animate({scrollTop: 0});
+		activeSlide.animate({scrollTop: 0});
 	});
 	activeSlide.scroll(function(){	
 		var modalScrollHeight = activeSlide.scrollTop();

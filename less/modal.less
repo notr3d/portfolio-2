@@ -77,42 +77,18 @@
 			}
 		}
 		&--slide-up {
+			width: 45px;
+			height: 45px;
 			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
+			right: 32px;
+			bottom: 15px;
 			background: rgba(0, 0, 0, 0.5);			
 			visibility: hidden;
 			opacity: 0;
 			transition: .3s;
-			@keyframes modal-scroll {
-				from {
-					transform: translateY(0);
-				}
-				to {
-					transform: translateY(-100vh);
-				}
-			}
-			@media @m {				
-				bottom: 15px;				
-				width: 75px;
-				height: 75px;
-			}
-			@media @t {				
-				bottom: 75px;				
-				width: 60px;
-				height: 60px;
-			}
-			@media @d {				
-				bottom: 150px;				
-				width: 45px;
-				height: 45px;
-			}	
 			&.visible {
 				visibility: visible;
 				opacity: 1;
-			}
-			&.active {
-				animation: modal-scroll .3s;
 			}
 		}
 		@media @m {

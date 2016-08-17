@@ -24,7 +24,6 @@
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 .site-nav__item {
@@ -38,6 +37,7 @@
   letter-spacing: 1px;
   font-size: 20px;
   font-weight: bold;
+  flex-grow: 1;
 }
 .site-nav__item:hover {
   background: #fef;
@@ -52,12 +52,8 @@
 }
 @media (max-width: 767px) {
   .site-nav__item {
-    flex-basis: 100%;
-  }
-}
-@media (min-width: 768px) {
-  .site-nav__item {
-    flex-grow: 1;
+    padding: 15px;
+    font-size: 14px;
   }
 }
 @media (min-width: 1280px) {
@@ -235,49 +231,19 @@
   content: 'Вернуться';
 }
 .modal__button--slide-up {
+  width: 45px;
+  height: 45px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 32px;
+  bottom: 15px;
   background: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
   transition: .3s;
 }
-@keyframes modal-scroll {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
-}
-@media (max-width: 767px) {
-  .modal__button--slide-up {
-    bottom: 15px;
-    width: 75px;
-    height: 75px;
-  }
-}
-@media (min-width: 768px) {
-  .modal__button--slide-up {
-    bottom: 75px;
-    width: 60px;
-    height: 60px;
-  }
-}
-@media (min-width: 1280px) {
-  .modal__button--slide-up {
-    bottom: 150px;
-    width: 45px;
-    height: 45px;
-  }
-}
 .modal__button--slide-up.visible {
   visibility: visible;
   opacity: 1;
-}
-.modal__button--slide-up.active {
-  animation: modal-scroll 0.3s;
 }
 @media (max-width: 767px) {
   .modal__button::after {
