@@ -38,19 +38,26 @@
 			position: absolute;								
 			transition: .3s;
 			z-index: 1;			
-			transform: translate(-50%, -50%);
+			//transform: translate(-50%, -50%);
+			//margin-left: -22.5px;
+			//margin-top: -22.5px;
+			top: 0;
+			left: 0;
+			margin: 15px;	
 			@media @m {
-				left: 50%;
-				top: 25%;
+				//left: 50%;
+				//top: 25%;
 			}
 			@media @t {
-				left: 25%;
-				top: 50%;	
+				//left: 25%;
+				//top: 50%;	
 			}
 			@media @d {
-				opacity: 0;
-				left: 50%;
-				top: 50%;	
+				//opacity: 0;
+				//left: 50%;
+				//top: 50%;	
+				margin-top: 0;
+				transform: translateY(-100%);
 			}
 		}
 		@media @m {
@@ -59,7 +66,9 @@
 		@media @d {
 			&:hover {
 				&::before {
-					opacity: 1;
+					//opacity: 1;
+					transform: translateY(0);
+					margin-top: 15px;
 				}
 				.portfolio__container {
 					transform: translateY(-100%);
@@ -70,11 +79,12 @@
 					-ms-filter: brightness(95%); 
 					-o-filter: brightness(95%); 
 					filter: brightness(95%); 
+					transform: scale(1.1);
 				}
 			}
 		}
 	}	
-	&__img {;
+	&__img {
 		background: @grey;
 		transition: .3s;
 		flex-basis: 50%;
