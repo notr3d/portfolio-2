@@ -6,18 +6,57 @@
 	display: -o-flex;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	//justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-	&__header {
-		margin: 0;
-	}
+    background: url(../img/intro-bg.jpg) no-repeat center;
+    background-size: cover;
+    &__top {
+        padding: 15px;
+        letter-spacing: 5px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    &__header {
+        border: 2px solid @black;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        font-size: 20px;
+        @media @t {
+            font-size: 25px;
+            border-width: 3px;
+        }
+        @media @d {
+            font-size: 30px;
+            border-width: 4px;
+        }
+    }
 }
 
 .site-nav {
 	align-self: stretch;	
 	min-height: 60px;
+    z-index: 10;
+    &--fixed {
+		.site-nav__wrapper {
+            background: @white;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.1);
+			z-index: 1;
+             @media @d {
+                padding-right: 60px;
+            }
+		}
+        .site-nav__top {
+            width: 60px;
+        }
+	}
 	&__wrapper {		
-		background: @white;
+		//background: @white;
 		display: -webkit-flex;
 		display: -moz-flex;
 		display: -ms-flex;
@@ -25,9 +64,12 @@
 		display: flex;
 		//flex-wrap: wrap;
 		justify-content: center;
+        position: relative;        
+         transition: .3s;
 	}
 	&__item {
-		padding: 15px 30px;
+        height: 60px;
+        line-height: 60px;
 		color: @black;
 		text-transform: uppercase;
 		text-decoration: none;
@@ -39,33 +81,34 @@
 		font-weight: bold;
 		flex-grow: 1;
 		&:hover {
-			background: @grey;
+			background: rgba(255, 255, 255, 0.5);
 		}
 		&--active {
 			background: @black;
 			color: @white;
-			cursor: default;
+			//cursor: default;
 			&:hover {
 				background: @black;
 			}
 		}
 		@media @m {
-			padding: 15px;
+			//padding: 15px;
 			font-size: 14px;
 		}
 		@media @d {
-			flex-grow: 0;
+			flex-grow: 0;            
+            padding: 0 30px;
 		}
 	}
-	&--fixed {
-		.site-nav__wrapper {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.1);
-			border-bottom: 1px solid @grey;
-			z-index: 1;
-		}
-	}
+    &__top {
+        width: 0;
+        height: 60px;
+        background: #000;
+        cursor: pointer;
+        transition: .3s;
+        @media @d {
+            position: absolute;
+            right: 0;
+        }
+    }	
 }

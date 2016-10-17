@@ -1,4 +1,22 @@
 .portfolio {
+    &__nav {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: center;
+    }
+    &__filter {
+        padding: 4px 0;
+        margin: 0 8px;
+        cursor: pointer;
+        font-size: 12px;
+        text-transform: uppercase;
+        &.active {
+            border-bottom: 1px solid red;
+        }
+    }
 	&__wrapper {
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -13,14 +31,19 @@
 		height: 324px;	
 		padding: 8px;
 		flex-basis: 100%;
+		transition: .3s;
 		@media @d {
 			flex-basis: 25%;
 		}	
+		&.hidden {
+			display: none;
+		}
 	}
 	&__inner {
+        background: @white;
+        color: @black;
 		width: 100%;
 		height: 100%;
-		border: 1px solid @grey;
 		cursor: pointer;
 		position: relative;	
 		overflow: hidden;

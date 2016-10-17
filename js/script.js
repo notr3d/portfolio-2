@@ -44,6 +44,11 @@ siteNavItem.click(function(e){
         scrollTop: $(id).offset().top + 1
     }, 300);
 });
+    
+var scrollTop = $('.site-nav__top');
+scrollTop.click(function(){
+    $(body).animate({scrollTop:0}, '300');
+})
 
 //modal window--------------------------------------------------------
 
@@ -153,5 +158,22 @@ $(document).keyup(function(e) {
 		slideModal(modalSlideButtonType);
 	};	
 });
+    
+//portfolio filter
+
+var portfolioNav = $('#portfolio-nav');
+var portfolioNavItem = portfolioNav.children();
+portfolioNavItem.click(function(){
+	var currentCat = $(this).data('filter');
+	$(this).addClass('active');
+	$(this).siblings().removeClass('active');
+	
+	portfolioItem.addClass('hidden');
+	portfolioItem.filter(currentCat).removeClass('hidden');
+	
+	if (currentCat == 'all') {
+		portfolioItem.removeClass('hidden');
+	}
+})
 
 });
